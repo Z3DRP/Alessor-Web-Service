@@ -2,9 +2,9 @@ package com.alessor.app.ws.ui.models;
 
 public class UserRes {
     private String Uid;
-    private String FirstName;
-    private String LastName;
-    private String Username;
+    private String firstName;
+    private String lastName;
+    private String username;
 
     public String getUid() {
         return Uid;
@@ -15,26 +15,26 @@ public class UserRes {
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.Username = username;
+        this.username = username;
     }
 }

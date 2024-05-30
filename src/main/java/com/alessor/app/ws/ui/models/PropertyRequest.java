@@ -1,112 +1,112 @@
 package com.alessor.app.ws.ui.models;
 
 public class PropertyRequest {
-    private String PropertyId;
-    private String Street;
-    private String City;
-    private String Zipcode;
-    private String County;
-    private String State;
-    private Double Bedrooms;
-    private Double Bathrooms;
-    private Float Price;
-    private Boolean IsRental;
-    private double Latitude;
-    private double Longitude;
+    private String propertyId;
+    private String street;
+    private String city;
+    private String zipcode;
+    private String county;
+    private String state;
+    private Double bedrooms;
+    private Double bathrooms;
+    private Float price;
+    private Boolean isRental;
+    private double latitude;
+    private double longitude;
 
     public String getPropertyId() {
-        return PropertyId;
+        return propertyId;
     }
 
     public void setPropertyId(String propertyId) {
-        this.PropertyId = propertyId;
+        this.propertyId = propertyId;
     }
 
     public String getStreet() {
-        return Street;
+        return street;
     }
 
     public void setStreet(String street) {
-        this.Street = street;
+        this.street = street;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        this.City = city;
+        this.city = city;
     }
 
     public String getZipcode() {
-        return Zipcode;
+        return zipcode;
     }
 
     public void setZipcode(String zipcode) {
-        this.Zipcode = zipcode;
+        this.zipcode = zipcode;
     }
 
     public String getCounty() {
-        return County;
+        return county;
     }
 
     public void setCounty(String county) {
-        this.County = county;
+        this.county = county;
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public void setState(String state) {
-        this.State = state;
+        this.state = state;
     }
 
     public Double getBedrooms() {
-        return Bedrooms;
+        return bedrooms;
     }
 
     public void setBedrooms(Double bedrooms) {
-        this.Bedrooms = bedrooms;
+        this.bedrooms = bedrooms;
     }
 
     public Double getBathrooms() {
-        return Bathrooms;
+        return bathrooms;
     }
 
     public void setBathrooms(Double bathrooms) {
-        this.Bathrooms = bathrooms;
+        this.bathrooms = bathrooms;
     }
 
     public Float getPrice() {
-        return Price;
+        return price;
     }
 
     public void setPrice(Float price) {
-        this.Price = price;
+        this.price = price;
     }
 
     public Boolean getIsRental() {
-        return IsRental;
+        return isRental;
     }
 
     public void setIsRental(Boolean isRental) {
-        IsRental = isRental;
+        isRental = isRental;
     }
 
     public double getLatitude() {
-        return Latitude;
+        return latitude;
     }
 
     public void setLatitude(double latitude) {
-        Latitude = latitude;
+        latitude = latitude;
     }
 
     public double getLongitude() {
-        return Longitude;
+        return longitude;
     }
 
     public void setLongitude(double longitude) {
-        Longitude = longitude;
+        this.longitude = longitude;
     }
 }

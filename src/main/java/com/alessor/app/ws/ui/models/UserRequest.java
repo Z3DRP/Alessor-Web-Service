@@ -2,12 +2,12 @@ package com.alessor.app.ws.ui.models;
 
 public class UserRequest {
     private String Uid;
-    private String FirstName;
-    private String LastName;
-    private String Email;
-    private String Phone;
-    private String Username;
-    private String Password;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
+    private String username;
+    private String password;
 
     public String getUid() {
         return Uid;
@@ -18,51 +18,51 @@ public class UserRequest {
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.Email = email;
+        this.email = email;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        this.Phone = phone;
+        this.phone = phone;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        this.Username = username;
+        this.username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
         // hash pwd in dto
-        this.Password = password;
+        this.password = password;
     }
 }

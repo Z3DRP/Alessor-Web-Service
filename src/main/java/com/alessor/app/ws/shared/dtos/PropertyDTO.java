@@ -14,7 +14,7 @@ public class PropertyDTO implements Serializable {
     private Double Bedrooms;
     private Double Bathrooms;
     private Float Price;
-    private Boolean IsRental;
+    private Boolean IsRental = false;
     private double Latitude;
     private double Longitude;
 

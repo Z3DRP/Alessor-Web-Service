@@ -1,49 +1,49 @@
 package com.alessor.app.ws.ui.models;
 
 public class PropertyRes {
-    private String PropertyId;
-    private String Street;
-    private String City;
-    private String Zipcode;
-    private Boolean IsRental;
+    private String propertyId;
+    private String street;
+    private String city;
+    private String zipcode;
+    private Boolean isRental;
 
     public String getPropertyId() {
-        return PropertyId;
+        return propertyId;
     }
 
     public void setPropertyId(String propertyId) {
-        this.PropertyId = propertyId;
+        this.propertyId = propertyId;
     }
 
     public String getStreet() {
-        return Street;
+        return string;
     }
 
     public void setStreet(String street) {
-        this.Street = street;
+        this.street = street;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        this.City = city;
+        this.city = city;
     }
 
     public String getZipcode() {
-        return Zipcode;
+        return zipcode;
     }
 
     public void setZipcode(String zipcode) {
-        this.Zipcode = zipcode;
+        this.zipcode = zipcode;
     }
 
     public Boolean getIsRental() {
-        return IsRental;
+        return isRental;
     }
 
     public void setIsRental(Boolean isRental) {
-        this.IsRental = isRental;
+        this.isRental = isRental;
     }
 }
