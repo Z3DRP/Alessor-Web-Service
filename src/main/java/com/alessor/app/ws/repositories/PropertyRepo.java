@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface PropertyRepo extends CrudRepository<PropertyEntity, Long>{
 
-    @Query("SELECT p FROM Properties p WHERE p.city = :param")
-    List<PropertyEntity> findByCity(@Param("param") String city);
+    @Query("SELECT p FROM Properties p WHERE p.city = :city")
+    List<PropertyEntity> findByCity(@Param("city") String city);
 }
