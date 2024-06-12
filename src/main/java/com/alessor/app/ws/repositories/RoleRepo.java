@@ -1,9 +1,12 @@
 package com.alessor.app.ws.repositories;
 
 import com.alessor.app.ws.io.entities.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
-public interface RoleRepo extends CrudRepository<Role, Long> {
+import java.util.Optional;
 
-    Role findByName(String name);
+public interface RoleRepo extends JpaRepository<Role, Long> {
+
+    Optional<Role> findByName(String name);
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class UserDTO implements Serializable {
     private static final long serialVersionUID = 1L;
-    private long Id;
+    private int Id;
     private String Uid;
     private String FirstName;
     private String LastName;
@@ -20,7 +20,7 @@ public class UserDTO implements Serializable {
         return Id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 

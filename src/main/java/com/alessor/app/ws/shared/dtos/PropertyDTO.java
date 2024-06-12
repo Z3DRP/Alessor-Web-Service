@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class PropertyDTO implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Long Id;
+    private int Id;
     private String PropertyId;
     private String Street;
     private String City;
@@ -18,11 +18,11 @@ public class PropertyDTO implements Serializable {
     private double Latitude;
     private double Longitude;
 
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 

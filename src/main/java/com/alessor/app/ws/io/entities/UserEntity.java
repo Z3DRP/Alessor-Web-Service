@@ -19,7 +19,7 @@ public class UserEntity implements Serializable {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(nullable=false, length=255, unique=true)
     private String uId;
@@ -152,5 +152,9 @@ public class UserEntity implements Serializable {
 
     public List<Role> getRoles() {
         return this.roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

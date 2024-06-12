@@ -7,11 +7,13 @@ import com.alessor.app.ws.shared.dtos.UserDTO;
 import com.alessor.app.ws.shared.lib.Utils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IUser implements UserService {
@@ -56,5 +58,19 @@ public class IUser implements UserService {
         }
 
         return userDTOS;
+    }
+
+    @Override
+    public UserDTO findByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        UserDTO userDTO = new UserDTO();
+        BeanUtils.copyProperties(userEntity, userDTO);
+        return userDTO;
+    }
+
+    @Override
+    public Boolean existsByUsername(String username) {
+        UserEntity userEntity = userRepository.getByUsername(username);
+        return userEntity != null;
     }
 }

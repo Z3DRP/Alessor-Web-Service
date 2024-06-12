@@ -10,16 +10,16 @@ public class Role {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(nullable = false)
     private String name;
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 

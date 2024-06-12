@@ -12,7 +12,7 @@ public class PropertyEntity implements Serializable {
 
     @jakarta.persistence.Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(nullable = false, unique = true)
     private String propertyId;
@@ -50,11 +50,11 @@ public class PropertyEntity implements Serializable {
     @Column(nullable = false)
     private Double latitude;
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
