@@ -1,0 +1,114 @@
+CREATE TABLE Properties (
+	Id int NOT NULL AUTO_INCREMENT,
+	PropertyId varchar(255) NOT NULL UNIQUE,
+	Street varchar(255) NOT NULL,
+	City varchar(255) NOT NULL,
+	County varchar(255) NOT NULL,
+	State char(2) NOT NULL,
+	Zipcode char(6) NOT NULL,
+	Bedrooms double(4, 2),
+	Bathrooms double(4, 2),
+	Price float(8, 2),
+	IsRental BOOLEAN,
+	Latitude double(6,6),
+	Longitude double(6, 6),
+	PRIMARY KEY(Id)
+);
+
+
+CREATE INDEX PropertyIdIndex
+ON Properties (PropertyId);
+
+CREATE INDEX PropertyCityIndex
+ON Properties (City);
+
+CREATE INDEX PropertyStateIndex
+ON Properties (State);
+
+CREATE INDEX PropertyZipIndex
+ON Properties (Zipcode);
+
+CREATE TABLE Users (
+	Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	Uid varchar(255) NOT NULL,
+	FirstName varchar(100) NOT NULL,
+	LastName varchar(100) NOT NULL,
+	Email varchar(75) NOT NULL,
+	Phone char(12) NOT NULL,
+	Username varchar(100) NOT NULL,
+	Password varchar(255) NOT NULL,
+	EmailVerificationStatus Boolean NOT NULL,
+	UNIQUE(Username),
+	UNIQUE(Email),
+	Unique(Uid)
+);
+
+
+CREATE INDEX UidIndex
+ON Users(Uid);
+
+CREATE INDEX UsernameIndex
+ON Users(Username);
+
+CREATE INDEX UserVerifiedIndex
+ON Users(EmailVerificationStatus);
+
+CREATE TABLE Roles (
+	Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	Name varchar(255) NOT NULL UNIQUE
+);
+
+INSERT INTO Roles VALUES(1, "ADMIN");
+INSERT INTO Roles VALUES(2, "LESSOR");
+INSERT INTO Roles VALUES(3, "TENANT");
+INSERT INTO Roles VALUES(4, "MAINTENANCE");
+
+CREATE INDEX RoleNameIndex
+ON Roles (Name);
+
+
+CREATE TABLE GeoLocation (
+	Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	PropertyId varchar(255),
+	Position point NOT NULL SRID 3857,
+	FOREIGN KEY (PropertyId) REFERENCES Properties(PropertyId),
+	SPATIAL INDEX(Position)
+);
+
+CREATE INDEX GeoLocationPropertyIndex
+ON GeoLocation (PropertyId);
+
+CREATE TABLE Tenants (
+	Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	Uid varchar(255) NOT NULL,
+	FirstName varchar(100) NOT NULL,
+	LastName varchar(100) NOT NULL,
+	Email varchar(75) NOT NULL,
+	Phone char(12) NOT NULL,
+	Username varchar(100) NOT NULL,
+	Password varchar(255) NOT NULL,
+	EmailVerificationStatus Boolean NOT NULL,
+	JobTitle varchar(255) NULL,
+	JobDescription varchar(255) NULL,
+	TenantType ENUM('RENTER', 'BUYER') DEFAULT 'RENTER',
+	EmploymentLength double NULL,
+	HasMissingPayments ENUM('true', 'false') DEFAULT 'false',
+	IsMovedIn ENUM('true', 'false') DEFAULT 'false',
+	LeaseSigned ENUM('true', 'false') DEFAULT 'false',
+	NumberOfPeopleOnOccupancy int NOT NULL,
+	TenancyLengthMonths double NOT NULL,
+	LeaseId int,
+	UNIQUE(Username),
+	UNIQUE(Email),
+	Unique(Uid),
+	FOREIGN KEY (LeaseId) REFERENCES Leases(Id)
+);
+
+
+CREATE TABLE Leases (
+	Id int NOT NULL PRIMARY KEY auto_increment,
+	Description varchar(255) NOT NULL,
+	Contents mediumblob NOT NULL,
+	Active ENUM('true', 'false') DEFAULT 'true'
+);
+
