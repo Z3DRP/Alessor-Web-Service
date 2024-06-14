@@ -3,6 +3,7 @@ package com.alessor.app.ws.shared.lib;
 import org.springframework.stereotype.Component;
 
 import java.security.SecureRandom;
+import java.util.Date;
 import java.util.Random;
 
 @Component
@@ -22,5 +23,10 @@ public class Utils {
         }
 
         return new String(generatedId);
+    }
+
+    public Date getCurrentDateTime() {
+        long currentTimeInMillis = System.currentTimeMillis();
+        return new Date(currentTimeInMillis);
     }
 }

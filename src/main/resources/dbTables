@@ -112,3 +112,21 @@ CREATE TABLE Leases (
 	Active ENUM('true', 'false') DEFAULT 'true'
 );
 
+CREATE TABLE Workers (
+	Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	Uid varchar(255) NOT NULL,
+	FirstName varchar(100) NOT NULL,
+	LastName varchar(100) NOT NULL,
+	Email varchar(75) NOT NULL,
+	Phone char(12) NOT NULL,
+	Username varchar(100) NOT NULL,
+	Password varchar(255) NOT NULL,
+	EmailVerificationStatus Boolean NOT NULL,
+	EmployeeType ENUM('HOURLY', 'SALARY') NOT NULL DEFAULT 'HOURLY',
+	PaySchedule ENUM('BI_WEEKLY', 'WEEKLY', 'ANNUALLY') NOT NULL,
+	PayRate double(6, 2) NOT NULL,
+	TenureYears double(4, 2) NOT NULL DEFAULT 0,
+	UNIQUE(Username),
+	UNIQUE(Email),
+	Unique(Uid)
+);

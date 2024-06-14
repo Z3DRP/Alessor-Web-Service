@@ -29,16 +29,16 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests( auth -> {
                     auth.requestMatchers("/").permitAll();
-                    auth.requestMatchers("users/register/alsr").permitAll();
-                    auth.requestMatchers("users/register/tenant").permitAll();
-                    auth.requestMatchers("users/register/maintenance").permitAll();
-                    auth.requestMatchers("/login/alsr").permitAll();
-                    auth.requestMatchers("/login/tenant").permitAll();
-                    auth.requestMatchers("/login/maintenance").permitAll();
+                    auth.requestMatchers("/users/alsr/register").permitAll();
+                    auth.requestMatchers("/users/tenant/register").permitAll();
+                    auth.requestMatchers("/users/worker/register").permitAll();
+                    auth.requestMatchers("/alsr/login").permitAll();
+                    auth.requestMatchers("/tenant/login").permitAll();
+                    auth.requestMatchers("/worker/login").permitAll();
                     auth.requestMatchers("/tenant/**").authenticated();
                     auth.requestMatchers("/tenant/**").hasRole("TENANT");
-                    auth.requestMatchers("/maintenance/**").authenticated();
-                    auth.requestMatchers("/maintenance/**").hasRole("MAINTENANCE");
+                    auth.requestMatchers("/worker/**").authenticated();
+                    auth.requestMatchers("/worker/**").hasRole("MAINTENANCE");
                     auth.requestMatchers("/alsr/**").authenticated();
                     auth.requestMatchers("/alsr/**").hasRole("LESSOR");
                     auth.anyRequest().authenticated();

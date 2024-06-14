@@ -7,7 +7,16 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity(name="Tenant")
-public class Tenant extends UserEntity {
+public class Tenant {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id")
+    private int id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="Uid")
+    private UserEntity user;
 
     @Column(name="JobTitle")
     private String jobTitle;
@@ -17,6 +26,9 @@ public class Tenant extends UserEntity {
 
     @Column(nullable=false, name="TenantType")
     private TenancyTypes tenantType;
+
+    @Column(name="Employeer")
+    private String employeer;
 
     @Column(name="EmploymentLength")
     private Float employmentLength;
@@ -38,7 +50,6 @@ public class Tenant extends UserEntity {
 
 //    @Column(nullable=false, name="LeaseAgreement")
 //    private Lease leaseAgreement;
-
     // TODO figure out how jpa handles foreign keys do i have to do this leaseAgreement obj and joinTable or just leaseId
     @Column(name="LeaseId")
     private int LeaseId;
@@ -48,6 +59,22 @@ public class Tenant extends UserEntity {
     @JoinTable(name="tenantLeases", joinColumns=@JoinColumn(name="userId", referencedColumnName="id"),
          inverseJoinColumns=@JoinColumn(name="leaseId", referencedColumnName="id"))
     private Lease leaseAgreement;
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public UserEntity getUser() {
+        return this.user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 
     public String getJobTitle() {
         return this.jobTitle;
@@ -71,6 +98,14 @@ public class Tenant extends UserEntity {
 
     public void setTenantType(TenancyTypes tenantType) {
         this.tenantType = tenantType;
+    }
+
+    public String getEmployeer() {
+        return this.employeer;
+    }
+
+    public void setEmployeer(String employeer) {
+        this.employeer = employeer;
     }
 
     public Float getEmploymentLength() {

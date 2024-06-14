@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PropertyRepo extends CrudRepository<PropertyEntity, Long>{
+public interface PropertyRepo extends CrudRepository<PropertyEntity, Integer>{
 
     @Query("SELECT p FROM Properties p WHERE p.city = :city")
     List<PropertyEntity> findByCity(@Param("city") String city);

@@ -57,9 +57,12 @@ public class UserEntity implements Serializable {
 
     public UserEntity() {}
 
-    @ManyToMany
-    @JoinTable(name="userRoles", joinColumns=@JoinColumn(name="userId", referencedColumnName="id"),
-        inverseJoinColumns=@JoinColumn(name="roleId", referencedColumnName="id"))
+//    @ManyToMany
+//    @JoinTable(name="userRoles", joinColumns=@JoinColumn(name="userId", referencedColumnName="id"),
+//        inverseJoinColumns=@JoinColumn(name="roleId", referencedColumnName="id"))
+//    private List<Role> roles = new ArrayList<>();
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="roleId")
     private List<Role> roles = new ArrayList<>();
 
     public String getUId() {

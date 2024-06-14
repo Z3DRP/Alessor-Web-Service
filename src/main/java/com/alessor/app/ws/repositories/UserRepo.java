@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRepo extends JpaRepository<UserEntity, Long> {
+public interface UserRepo extends JpaRepository<UserEntity, Integer> {
 
     @Query("SELECT u FROM Users u WHERE u.emailVerificationStatus = :status")
     List<UserEntity> findUsersByVerificationStatus(@Param("status") Boolean status);
